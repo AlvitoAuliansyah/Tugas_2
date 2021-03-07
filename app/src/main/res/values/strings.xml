@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Consult-Go</string>
+    <string name="login">Masuk</string>
+    <string name="email">Email</string>
+    <string name="password">Kata Sandi</string>
+    <string name="fpassword">Lupa Kata Sandi</string>
+    <string name="newaccount">Pengguna Baru? Buat Akun</string>
+    <string name="masuk_btn">Masuk</string>
+</resources>
