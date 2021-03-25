@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,9 +12,9 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     Button buttonMasuk;
-    EditText edEmail,edPassword;
+    EditText edEmail, edPassword;
     TextView tHasil;
-    String mail,pwd;
+    String mail, pwd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,40 +28,37 @@ public class MainActivity extends AppCompatActivity {
 
         buttonMasuk.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 mail = edEmail.getText().toString();
                 pwd = edPassword.getText().toString();
 
-                Toast t = Toast.makeText(getApplicationContext(),
-                         "Email anda: "+mail+" dan Password: "+pwd+"", Toast.LENGTH_LONG);
-                t.show();
+                String email = "Alv@gmail.com";
+                String pass = "123";
 
-                String email="Alv@gmail.com";
-                String pass="123";
+                if (mail.isEmpty() || pwd.isEmpty()) {
+                    Toast t = Toast.makeText(getApplicationContext(),
+                            "Email dan Password wajib diisi!!!",
+                            Toast.LENGTH_LONG);
+                    t.show();
+                } else {
+                    if (mail.equals(email) && pwd.equals(pass)) {
+                        Toast t = Toast.makeText(getApplicationContext(),
+                                "Login Sukses", Toast.LENGTH_LONG);
+                        t.show();
 
-                if(mail.equals(email) && pwd.equals(pass)) {
-                    t = Toast.makeText(getApplicationContext(),
-                            "Email dan Password benar", Toast.LENGTH_LONG);
-                    t.show();
+                        Bundle b = new Bundle();
+                        b.putString("a", mail.trim());
+                        b.putString("b", mail.trim());
+                        Intent i = new Intent(getApplicationContext(), Activity2.class);
+                        i.putExtras(b);
+                        startActivity(i);
+                    } else {
+                        Toast t = Toast.makeText(getApplicationContext(),
+                                "Login Gagal", Toast.LENGTH_LONG);
+                        t.show();
+                    }
                 }
-                else if(!mail.equals(email) && pwd.equals(pass)) {
-                    t = Toast.makeText(getApplicationContext(),
-                            "Email salah", Toast.LENGTH_LONG);
-                    t.show();
-                }
-                else if(mail.equals(email) && !pwd.equals(pass)) {
-                    t = Toast.makeText(getApplicationContext(),
-                            "Password salah", Toast.LENGTH_LONG);
-                    t.show();
-                }
-                else {
-                    t = Toast.makeText(getApplicationContext(),
-                            "Email dan Password salah", Toast.LENGTH_LONG);
-                    t.show();
-                }
-
             }
         });
-
-        }
     }
+}
