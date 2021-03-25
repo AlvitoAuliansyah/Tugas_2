@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
                         Bundle b = new Bundle();
                         b.putString("a", mail.trim());
-                        b.putString("b", mail.trim());
+                        b.putString("b", pwd.trim());
                         Intent i = new Intent(getApplicationContext(), Activity2.class);
                         i.putExtras(b);
                         startActivity(i);
