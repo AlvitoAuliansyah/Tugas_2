@@ -11,16 +11,21 @@
         android:theme="@style/Theme.MyApplication">
         <activity android:name=".DaftarActivity"
             android:parentActivityName=".MainActivity"></activity>
-        <activity
-            android:name=".Activity2"
-            android:label="@string/label2"
-            android:parentActivityName=".MainActivity" />
+        <activity android:name=".Activity2"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/label2"></activity>
+        <activity android:name=".ActivityLihatData"
+            android:parentActivityName=".Home_Activity"></activity>
+        <activity android:name=".Home_Activity"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

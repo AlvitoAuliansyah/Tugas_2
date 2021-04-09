@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -18,7 +19,13 @@ public class DaftarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabSimpan);
+
+        edtNama = findViewById(R.id.edNama);
+        edtAlamat = findViewById(R.id.edAlamat);
+        edtEmail = findViewById(R.id.EdEmail);
+        edtPassword = findViewById(R.id.edPass);
+        edtrepass = findViewById(R.id.edrepas);
+        fab = findViewById(R.id.fabSimpan);
 
     fab.setOnClickListener(new View.OnClickListener() {
         @Override
@@ -35,10 +42,11 @@ public class DaftarActivity extends AppCompatActivity {
             {
                 if (edtPassword.getText().toString().equals(edtrepass.getText().toString()))
                 {
-                     Toast t = Toast.makeText(getApplicationContext(),
-                             "Pendaftaran Berhasil...",
-                             Toast.LENGTH_SHORT);
-                     t.show();
+                     Toast.makeText(getApplicationContext(), "Pendaftaran Berhasil...",
+                             Toast.LENGTH_SHORT).show();
+
+                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                     startActivity(i);
                 }
                 else {
                     Snackbar.make(view, "Password dan Repassword harus sama!!!",
